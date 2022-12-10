@@ -10,8 +10,10 @@ const app = express()
 
 dotenv.config()
 
+const DB = process.env.MONGO_URI || 'mongodb://localhost/pinterest';
+
 //MongoDB Connection
-mongoose.connect('mongodb://localhost/pinterest',{    
+mongoose.connect(DB,{    
     useUnifiedTopology: true,
 })
 .then(()=> console.log("Database Connected"))
